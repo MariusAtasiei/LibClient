@@ -1,0 +1,57 @@
+.filters {
+  &-parent {
+    border-right: solid gray 1px;
+    padding: 5px 0px;
+    &-mobile {
+      position: absolute !important;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      width: 100%;
+      height: 100%;
+      padding: 20px 35px !important;
+    }
+  }
+
+  &-submit {
+    margin: 10px;
+  }
+
+  &-button {
+    display: none;
+
+    &-cancel {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      font-size: 24px;
+      color: gray;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+
+  &-group {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters {
+    &-parent {
+      display: none;
+    }
+
+    &-button {
+      width: 100%;
+      display: block;
+    }
+  }
+}

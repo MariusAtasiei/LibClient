@@ -1,0 +1,56 @@
+.book {
+  width: 200px;
+  margin: 10px;
+  text-decoration: none;
+  text-align: center;
+  justify-content: flex-start;
+
+  &-link {
+    text-decoration: none !important;
+
+    &-div {
+      margin: 10px;
+    }
+
+    &-img {
+      height: 140px;
+    }
+
+    &-title {
+      font-size: 16px;
+    }
+
+    &-author {
+      font-size: 14px;
+    }
+  }
+
+  &-cart {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    width: 70%;
+    margin: 0 auto;
+
+    &-info {
+      display: flex;
+      justify-content: space-between !important;
+      margin: 0px 10px;
+
+      &-details {
+        margin-bottom: 8px !important;
+      }
+
+      &-delete {
+        font-size: 16px !important;
+        padding: 3px 10px !important;
+        height: 40px !important;
+      }
+
+      &-select {
+        width: 60px !important;
+        height: 30px !important;
+      }
+    }
+  }
+}

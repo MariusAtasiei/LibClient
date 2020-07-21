@@ -1,0 +1,22 @@
+.books {
+  padding: 0 10px;
+
+  display: flex;
+
+  &-parent {
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .books {
+    display: block;
+    padding: 0;
+
+    &-parent {
+      margin: 0;
+    }
+  }
+}

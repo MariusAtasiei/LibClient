@@ -1,0 +1,15 @@
+.app {
+  margin: 0 auto;
+  max-width: 1170px;
+  width: 100%;
+
+  &-main {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    margin-top: 0;
+  }
+}

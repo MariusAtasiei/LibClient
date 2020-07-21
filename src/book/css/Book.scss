@@ -1,0 +1,134 @@
+.book {
+  &-presentation {
+    display: flex;
+    width: 100%;
+    padding: 20px 30px 40px;
+    border-bottom: 1px solid gray;
+
+    &-image {
+      height: 300px;
+    }
+
+    &-info {
+      min-width: 40vw;
+      margin: 20px 10px;
+
+      &-price {
+        margin-top: 20px;
+        color: #f56f02;
+      }
+    }
+
+    &-button {
+      margin: 10px 10px 0 0;
+      height: 40px;
+    }
+  }
+
+  &-description {
+    display: block;
+
+    padding: 20px;
+    border-bottom: 1px solid gray;
+
+    &-title {
+      margin-left: 15px;
+      margin-bottom: 10px;
+    }
+
+    &-text {
+      text-indent: 30px;
+      line-height: 30px;
+    }
+  }
+
+  &-details {
+    margin: 20px;
+
+    &-title {
+      margin-left: 15px;
+      margin-bottom: 20px;
+    }
+
+    &-spec {
+      display: flex;
+      &-item {
+        display: block;
+      }
+
+      &-item {
+        width: 150px;
+      }
+    }
+  }
+
+  &-wishlist {
+    position: absolute;
+    border-radius: 4px;
+    background-color: white;
+    width: 600px;
+    padding: 20px;
+    border: 1px solid black;
+
+    top: 180px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    &-top {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 20px;
+
+      &-button {
+        border: none;
+
+        margin: 0;
+        text-decoration: none;
+        background-color: transparent;
+        font-size: 24px;
+        color: grey;
+        text-align: center;
+        outline: none;
+
+        &:hover {
+          color: #4a4a4a;
+        }
+
+        &:focus {
+          background: transparent;
+          outline: none;
+          color: black;
+        }
+      }
+    }
+
+    &-form {
+      padding: 10px;
+
+      &-button {
+        margin: 0 10px;
+      }
+
+      &-label {
+        margin-left: 10px;
+      }
+
+      &-input {
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .book-presentation {
+    display: block;
+
+    &-image {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

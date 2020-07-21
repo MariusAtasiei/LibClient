@@ -1,0 +1,24 @@
+.wishlist {
+  width: 70%;
+  margin: 0 auto;
+
+  &-list {
+    width: 80%;
+    margin: 0 auto;
+
+    &-link {
+      text-decoration: none !important;
+    }
+
+    &-item {
+      border: 1px solid gray;
+      padding: 10px 30px;
+      color: black;
+
+      &:hover {
+        color: gray;
+        border-color: black;
+      }
+    }
+  }
+}
