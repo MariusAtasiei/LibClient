@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import axios from "axios"
 import Input from "../components/Input"
+import { inputs } from "../components/variables"
 
 function CreateBook() {
   const { register, handleSubmit, errors } = useForm()
@@ -38,36 +39,10 @@ function CreateBook() {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Input register={register} errors={errors} name="Image" type="file" />
-        <Input register={register} errors={errors} name="Title" type="text" />
-        <Input register={register} errors={errors} name="Author" type="text" />
-        <Input
-          register={register}
-          errors={errors}
-          name="Description"
-          type="text"
-        />
-        <Input
-          register={register}
-          errors={errors}
-          name="Category"
-          type="text"
-        />
-        <Input
-          register={register}
-          errors={errors}
-          name="Publisher"
-          type="text"
-        />
-        <Input register={register} errors={errors} name="Year" type="number" />
-        <Input register={register} errors={errors} name="Pages" type="number" />
-        <Input register={register} errors={errors} name="Price" type="number" />
-        <Input
-          register={register}
-          errors={errors}
-          name="Amount"
-          type="number"
-        />
+        {inputs.map(({ name, type }) => (
+          <Input register={register} errors={errors} name={name} type={type} />
+        ))}
+
         <p style={{ color: res.color }}>{res.message}</p>
         <input type="submit" className="btn btn-primary" />
       </form>

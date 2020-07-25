@@ -89,6 +89,8 @@ function Filters() {
     </div>
   )
 
+  if (!filters.author) return <div></div>
+
   return (
     <>
       <button

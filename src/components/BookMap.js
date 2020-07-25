@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import { imageSrc } from "./links"
 import "./css/Books.scss"
 
-const getTitle = ({ title }) => {
+export const getTitle = ({ title }) => {
   let titlu = title.substring(0, 70).split(" ")
   titlu.pop()
   titlu = titlu.join(" ")
@@ -45,33 +45,12 @@ export const BooksMap = ({ books, type }) => {
 }
 
 const Book = ({ book, type }) => {
-  const history = useHistory()
-
-  const handleClick = ({ target }) => {
-    const { value } = target
-    const cart = JSON.parse(localStorage.getItem("cart"))
-    delete cart[value]
-    localStorage.setItem("cart", JSON.stringify(cart))
-    history.go()
-  }
-
-  const handleChange = ({ target }) => {
-    const cart = JSON.parse(localStorage.getItem("cart"))
-    cart[book._id] = target.value * 1
-    localStorage.setItem("cart", JSON.stringify(cart))
-    book.requestedAmount = target.value * 1
-    setPrice(book.requestedAmount * book.price)
-  }
-
-  const [price, setPrice] = useState(book.requestedAmount * book.price)
+  const jwt = JSON.parse(localStorage.getItem("jwt"))
+  const username = jwt ? jwt.user.username : null
 
   return (
-    <div className={`book${type === "home" ? "" : "-cart"}`}>
-      <Link
-        to={`/book/${book.id}`}
-        style={{ color: "black" }}
-        className="book-link"
-      >
+    <div className={`book${type === "home" ? "" : "-wishlist"}`}>
+      <Link to={`/book/${book.id}`} className="book-link">
         <img src={imageSrc(book)} className="book-link-img" />
       </Link>
       <div className="book-link-div">
@@ -80,53 +59,29 @@ const Book = ({ book, type }) => {
           style={{ color: "black" }}
           className="book-link"
         >
-          <h4 className="book-link-title">{getTitle(book)}</h4>
+          <h4 className="book-link-title">{book.title}</h4>
           <h6 className="book-link-author">{book.author}</h6>
         </Link>
 
-        {type === "home" || type === "wishlist" ? (
-          <>
-            <p>
-              {book.price}
-              <sup>00</sup> lei
-            </p>
-            <button
-              onClick={addToCart}
-              value={book._id}
-              className="btn btn-primary"
-            >
-              Add cart
-            </button>
-          </>
+        <p>
+          {book.price}
+          <sup>00</sup> lei
+        </p>
+
+        {username === "admin" && type === "home" ? (
+          <Link to={`/edit-book/${book._id}`} className="btn btn-primary">
+            Edit Book
+          </Link>
         ) : (
-          <div className="book-cart-info">
-            <div>
-              <p className="book-cart-info-details">Amount: </p>
-              <select
-                defaultValue={book.requestedAmount}
-                onChange={handleChange}
-                className="form-control book-cart-info-select"
-              >
-                {numberList(book.amount).map((number) => (
-                  <option>{number}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <p className="book-cart-info-details">Price: </p>
-              <p>
-                {price}
-                <sup>00</sup> lei
-              </p>
-            </div>
-            <button
-              onClick={handleClick}
-              value={book._id}
-              className="btn btn-danger book-cart-info-delete"
-            >
-              Delete
-            </button>
-          </div>
+          <button
+            onClick={addToCart}
+            value={book._id}
+            className={`btn btn-primary ${
+              type === "wishlist" ? "book-link-div-button" : null
+            }`}
+          >
+            Add cart
+          </button>
         )}
       </div>
     </div>

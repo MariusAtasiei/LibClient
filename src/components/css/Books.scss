@@ -7,9 +7,14 @@
 
   &-link {
     text-decoration: none !important;
+    color: black;
 
     &-div {
       margin: 10px;
+
+      &-button {
+        float: right;
+      }
     }
 
     &-img {
@@ -18,6 +23,8 @@
 
     &-title {
       font-size: 16px;
+      height: 60px;
+      overflow: hidden;
     }
 
     &-author {
@@ -25,32 +32,15 @@
     }
   }
 
-  &-cart {
+  &-wishlist {
     display: flex;
     padding: 10px;
     margin: 10px;
     width: 70%;
     margin: 0 auto;
-
-    &-info {
-      display: flex;
-      justify-content: space-between !important;
-      margin: 0px 10px;
-
-      &-details {
-        margin-bottom: 8px !important;
-      }
-
-      &-delete {
-        font-size: 16px !important;
-        padding: 3px 10px !important;
-        height: 40px !important;
-      }
-
-      &-select {
-        width: 60px !important;
-        height: 30px !important;
-      }
-    }
   }
+}
+
+.books-parent {
+  display: flex;
 }
