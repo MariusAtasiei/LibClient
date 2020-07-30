@@ -10,6 +10,9 @@ import Signup from "./user/Signup"
 import Confirmation from "./user/Confirmation"
 import Wishlists from "./user/Wishlists"
 import Wishlist from "./user/Wishlist"
+import Checkout from "./user/Checkout"
+import History from "./user/History"
+import Order from "./user/Order"
 import "./App.scss"
 
 function MainRouter() {
@@ -20,6 +23,7 @@ function MainRouter() {
       {redirectPaths.includes(pathname) && <Redirect to="/" />}
       <Switch>
         <Route exact path="/" component={GetBooks} />
+        <Route path="/page=:page" component={GetBooks} />
         <Route path="/search=:search" component={GetBooks} />
         <Route path="/filters/:filters" component={GetBooks} />
         <Route path="/filters" component={GetBooks} />
@@ -32,6 +36,9 @@ function MainRouter() {
         <Route path="/confirmation/:key" component={Confirmation} />
         <Route path="/user/wishlist/:id" component={Wishlist} />
         <Route path="/user/wishlists" component={Wishlists} />
+        <Route path="/user/history" component={History} />
+        <Route path="/user/order/:id" component={Order} />
+        <Route path="/checkout" component={Checkout} />
       </Switch>
     </div>
   )
